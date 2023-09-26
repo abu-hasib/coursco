@@ -6,4 +6,4 @@ RUN yarn
 COPY . .
 RUN yarn build
 EXPOSE 8080
-CMD [ "node", "dist/server" ]
+CMD [ "node", "server/dist/server" ]
