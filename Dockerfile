@@ -4,7 +4,7 @@ COPY package*.json ./
 RUN yarn
 COPY . .
 RUN ls
-WORKDIR /server
+WORKDIR /server/
 RUN ls
 RUN yarn build
 EXPOSE 8080
