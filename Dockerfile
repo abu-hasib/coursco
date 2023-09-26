@@ -1,11 +1,8 @@
 FROM node:18
-WORKDIR /server
-COPY . /server/
-RUN ls
-RUN cd server
-RUN ls
+WORKDIR /.
 COPY package*.json ./
 RUN yarn
+COPY . .
 RUN yarn build
 EXPOSE 8080
-CMD [ "node", "server/dist/server" ]
+CMD [ "node", "dist/server" ]
