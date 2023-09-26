@@ -4,7 +4,7 @@ import { makeExecutableSchema } from "@graphql-tools/schema";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import { typeDefs } from "./schema";
 import { resolvers } from "./resolvers";
-import { API } from "./datasource/api";
+import { TrackAPI } from "./datasource/track-api";
 
 const mocks = {
   Query: () => ({
@@ -28,19 +28,16 @@ const mocks = {
 };
 
 async function startApolloServer() {
-  const server = new ApolloServer({
-    typeDefs,
-    resolvers
-  });
+  const server = new ApolloServer({ typeDefs, resolvers });
   const { url } = await startStandaloneServer(server, {
-    context:async () => {
-      const {cache} = server
+    context: async () => {
+      const { cache } = server;
       return {
         dataSources: {
-          API: new API({ cache }),
+          trackAPI: new TrackAPI({ cache }),
         },
-      }
-    }
+      };
+    },
   });
   console.log(`
     🚀  Server is running!
