@@ -5,12 +5,16 @@
   "main": "index.js",
   "scripts": {
     "build": "dotenv -e .env -- npx tsc",
-    "develop": "DEBUG=express:* dotenv -e .env.development -- npx ts-node-dev --rs --clear --exit-child src/server.ts"
+    "develop": "DEBUG=express:* dotenv -e .env.development -- npx ts-node-dev --rs --clear --exit-child src/server.ts",
+    "generate": "graphql-codegen"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@graphql-codegen/cli": "^4.0.1",
+    "@graphql-codegen/typescript": "^4.0.1",
+    "@graphql-codegen/typescript-resolvers": "^4.0.1",
     "dotenv-cli": "^7.3.0",
     "typescript": "^5.2.2"
   },
@@ -20,6 +24,7 @@
     "@graphql-tools/schema": "^10.0.0",
     "dotenv": "^16.3.1",
     "graphql": "^16.8.1",
-    "graphql-tag": "^2.12.6"
+    "graphql-tag": "^2.12.6",
+    "@apollo/datasource-rest": "^6.0.1"
   }
 }
