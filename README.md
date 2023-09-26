@@ -1,3 +1,1 @@
 # Coursco
-
-server and client
