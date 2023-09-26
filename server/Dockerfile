@@ -1,5 +1,5 @@
 FROM node:18
-WORKDIR /server
+WORKDIR /./server
 RUN ls
 COPY package*.json ./
 RUN yarn
