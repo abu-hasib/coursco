@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "develop": "DEBUG=express:* dotenv -e .env.development -- npx ts-node-dev --rs --clear --exit-child src/server.ts"
   },
   "keywords": [],
   "author": "",
