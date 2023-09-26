@@ -19,4 +19,10 @@ export const typeDefs = gql`
     name: String!
     photo: String
   }
+
+  type Module {
+    id: ID!
+    title: String!
+    length: Int
+  }
 `;

@@ -28,17 +28,13 @@ const mocks = {
 };
 
 async function startApolloServer() {
-  const server = new ApolloServer({ typeDefs, resolvers });
-  const { url } = await startStandaloneServer(server, {
-    context: async () => {
-      const { cache } = server;
-      return {
-        dataSources: {
-          trackAPI: new TrackAPI({ cache }),
-        },
-      };
-    },
+  const server = new ApolloServer({
+    schema: addMocksToSchema({
+      schema: makeExecutableSchema({ typeDefs }),
+      mocks,
+    }),
   });
+  const { url } = await startStandaloneServer(server);
   console.log(`
     🚀  Server is running!
     📭  Query at ${url}
